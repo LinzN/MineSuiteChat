@@ -1,0 +1,72 @@
+name: cookieApiChat
+version: ${project.version}
+description: Chatplugin
+authors: [Kekshaus]
+main: de.kekshaus.cookieApi.chat.Chatplugin
+softdepend: [Vault]
+
+commands:
+  gc:
+    aliases: [guildchat, guildc]
+    description: GuildChat
+  msg:
+    aliases: [pm, tell]
+    description: MSG
+  r:
+    aliases: [reply]
+    description: MSG
+  tc:
+    aliases: [ac, a]
+    description: TeamChat
+  g:
+    aliases: [global, gc, me]
+    description: GlobalChat
+  afk:
+    description: AFK
+  spy:
+    aliases: [socialspy]
+    description: SocialSpy
+
+permissions:
+    cookieApi.chat.team:
+        description: Alle User Permissions
+        children:
+            cookieApi.chat.user: true
+            cookieApi.chat.socialspy: true
+            cookieApi.chat.bypass: true
+    cookieApi.chat.user:
+        description: Alle User Permissions
+        children:
+            cookieApi.chat.gchat: true
+            cookieApi.chat.pm: true
+            cookieApi.chat.reply: true
+            cookieApi.chat.afk: true
+            cookieApi.chat.global: true
+            cookieApi.chat.use: true
+    cookieApi.chat.gchat:
+        description: GuildChat
+        default: op
+    cookieApi.chat.afk:
+        description: GuildChat
+        default: op
+    cookieApi.chat.pm:
+        description: GuildChat
+        default: op
+    cookieApi.chat.reply:
+        description: GuildChat
+        default: op
+    cookieApi.chat.staff:
+        description: GuildChat
+        default: op
+    cookieApi.chat.global:
+        description: GuildChat
+        default: op
+    cookieApi.chat.use:
+        description: GuildChat
+        default: op
+    cookieApi.chat.socialspy:
+        description: Socialspy
+        default: op
+    cookieApi.chat.bypass:
+        description: Bypass
+        default: op
