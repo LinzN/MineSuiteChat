@@ -10,11 +10,11 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.kekshaus.cookieApi.bukkit.MessageDB;
-import de.kekshaus.cookieApi.bukkit.managerApi.ChatApi;
+import de.kekshaus.cookieApi.chat.ChatApi;
 import de.kekshaus.cookieApi.chat.Chatplugin;
+import de.kekshaus.cookieApi.guild.database.HashDatabase;
 import de.kekshaus.cookieApi.guild.objects.Guild;
 import de.kekshaus.cookieApi.guild.objects.GuildPlayer;
-import de.kekshaus.cookieApi.guild.objects.ObjectMapping;
 
 public class GuildChat implements CommandExecutor {
 	public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,
@@ -29,7 +29,7 @@ public class GuildChat implements CommandExecutor {
 		if (player.hasPermission("cookieApi.chat.gchat")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				public void run() {
-					GuildPlayer gPlayer = ObjectMapping.getGuildPlayer(sender.getName());
+					GuildPlayer gPlayer = HashDatabase.getGuildPlayer(sender.getName());
 					Guild guild = gPlayer.getGuild();
 					if (guild == null) {
 						sender.sendMessage("Du bist in keiner Gilde!");

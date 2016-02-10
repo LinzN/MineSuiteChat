@@ -10,6 +10,10 @@ import de.kekshaus.cookieApi.chat.commands.PrivateMSG;
 import de.kekshaus.cookieApi.chat.commands.PrivateReply;
 import de.kekshaus.cookieApi.chat.commands.SocialSpy;
 import de.kekshaus.cookieApi.chat.commands.StaffChat;
+import de.kekshaus.cookieApi.chat.events.BungeeStreamChatEvent;
+import de.kekshaus.cookieApi.chat.events.ServerStreamChatEvent;
+import de.kekshaus.cookieApi.chat.events.ServerStreamChatListener;
+import de.xHyveSoftware.socket.bukkit.api.PacketManager;
 import net.milkbowl.vault.chat.Chat;
 
 public class Chatplugin extends JavaPlugin {
@@ -23,6 +27,9 @@ public class Chatplugin extends JavaPlugin {
 		setupChat();
 		vault = new VaultListen();
 		loadCommands();
+		PacketManager.registerPacket(BungeeStreamChatEvent.class);
+		PacketManager.registerPacket(ServerStreamChatEvent.class);
+		PacketManager.registerListener(new ServerStreamChatListener());
 	}
 
 	public void onDisable() {

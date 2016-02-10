@@ -8,7 +8,6 @@ import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import de.kekshaus.cookieApi.bukkit.MessageDB;
-import de.kekshaus.cookieApi.bukkit.managerApi.ChatApi;
 import de.kekshaus.cookieApi.bukkit.utils.Mapped;
 
 public class ChatListener implements Listener {

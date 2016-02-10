@@ -10,7 +10,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.kekshaus.cookieApi.bukkit.MessageDB;
-import de.kekshaus.cookieApi.bukkit.managerApi.ChatApi;
+import de.kekshaus.cookieApi.chat.ChatApi;
 import de.kekshaus.cookieApi.chat.Chatplugin;
 
 public class GlobalChat implements CommandExecutor {
