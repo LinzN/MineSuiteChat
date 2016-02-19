@@ -10,8 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.kekshaus.cookieApi.bukkit.MessageDB;
-import de.kekshaus.cookieApi.chat.ChatApi;
 import de.kekshaus.cookieApi.chat.Chatplugin;
+import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
 import de.kekshaus.cookieApi.guild.database.HashDatabase;
 import de.kekshaus.cookieApi.guild.objects.Guild;
 import de.kekshaus.cookieApi.guild.objects.GuildPlayer;
@@ -46,7 +46,7 @@ public class GuildChat implements CommandExecutor {
 						text = text + arg;
 					}
 
-					ChatApi.guildChat(guild.getGuildName(), sender.getName(), text);
+					CHStreamOutApi.guildChat(guild.getGuildName(), sender.getName(), text);
 
 				}
 			});

@@ -10,8 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.kekshaus.cookieApi.bukkit.MessageDB;
-import de.kekshaus.cookieApi.chat.ChatApi;
 import de.kekshaus.cookieApi.chat.Chatplugin;
+import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
 
 public class PrivateMSG implements CommandExecutor {
 	public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,
@@ -37,7 +37,7 @@ public class PrivateMSG implements CommandExecutor {
 						text = text + arg;
 					}
 					String prefix = Chatplugin.inst().getVaultData().getPrefix(player).replace("&", "§");
-					ChatApi.privateMsg(player.getDisplayName(), receiver, text, prefix);
+					CHStreamOutApi.privateMsg(player.getDisplayName(), receiver, text, prefix);
 
 				}
 			});

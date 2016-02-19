@@ -10,8 +10,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 import de.kekshaus.cookieApi.bukkit.MessageDB;
-import de.kekshaus.cookieApi.chat.ChatApi;
 import de.kekshaus.cookieApi.chat.Chatplugin;
+import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
 
 public class SocialSpy implements CommandExecutor {
 	public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,
@@ -26,7 +26,7 @@ public class SocialSpy implements CommandExecutor {
 		if (player.hasPermission("cookieApi.chat.socialspy")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				public void run() {
-					ChatApi.setSocialSpy(player.getName());
+					CHStreamOutApi.setSocialSpy(player.getName());
 				}
 			});
 		} else {

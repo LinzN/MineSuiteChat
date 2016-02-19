@@ -2,7 +2,6 @@ package de.kekshaus.cookieApi.chat;
 
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-
 import de.kekshaus.cookieApi.chat.commands.Afk;
 import de.kekshaus.cookieApi.chat.commands.GlobalChat;
 import de.kekshaus.cookieApi.chat.commands.GuildChat;
@@ -10,10 +9,8 @@ import de.kekshaus.cookieApi.chat.commands.PrivateMSG;
 import de.kekshaus.cookieApi.chat.commands.PrivateReply;
 import de.kekshaus.cookieApi.chat.commands.SocialSpy;
 import de.kekshaus.cookieApi.chat.commands.StaffChat;
-import de.kekshaus.cookieApi.chat.events.BungeeStreamChatEvent;
-import de.kekshaus.cookieApi.chat.events.ServerStreamChatEvent;
-import de.kekshaus.cookieApi.chat.events.ServerStreamChatListener;
-import de.xHyveSoftware.socket.bukkit.api.PacketManager;
+import de.kekshaus.cookieApi.chat.listener.BukkitSockChatListener;
+import de.kekshaus.cookieApi.chat.listener.ChatListener;
 import net.milkbowl.vault.chat.Chat;
 
 public class Chatplugin extends JavaPlugin {
@@ -24,12 +21,10 @@ public class Chatplugin extends JavaPlugin {
 	public void onEnable() {
 		inst = this;
 		getServer().getPluginManager().registerEvents(new ChatListener(), this);
+		getServer().getPluginManager().registerEvents(new BukkitSockChatListener(), this);
 		setupChat();
 		vault = new VaultListen();
 		loadCommands();
-		PacketManager.registerPacket(BungeeStreamChatEvent.class);
-		PacketManager.registerPacket(ServerStreamChatEvent.class);
-		PacketManager.registerListener(new ServerStreamChatListener());
 	}
 
 	public void onDisable() {
