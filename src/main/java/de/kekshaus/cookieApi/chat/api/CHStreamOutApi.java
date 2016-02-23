@@ -25,7 +25,8 @@ public class CHStreamOutApi {
 		BukkitPlugin.instance().sendBytesOut(b);
 	}
 
-	public static void channelChat(String sender, String rawtext, String prefix, String suffix, String channel) {
+	public static void channelChat(String sender, String rawtext, String prefix, String suffix, String channel,
+			String guild) {
 		ByteArrayOutputStream b = new ByteArrayOutputStream();
 		DataOutputStream out = Channel.chatChannel(b);
 		try {
@@ -35,6 +36,7 @@ public class CHStreamOutApi {
 			out.writeUTF(prefix);
 			out.writeUTF(suffix);
 			out.writeUTF(channel);
+			out.writeUTF(guild);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

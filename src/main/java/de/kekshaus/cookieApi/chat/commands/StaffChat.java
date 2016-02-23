@@ -9,7 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.kekshaus.cookieApi.bukkit.MessageDB;
+import de.kekshaus.cookieApi.bukkit.GlobalMessageDB;
 import de.kekshaus.cookieApi.chat.Chatplugin;
 import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
 
@@ -38,12 +38,12 @@ public class StaffChat implements CommandExecutor {
 					}
 					String prefix = Chatplugin.inst().getVaultData().getPrefix(player).replace("&", "§");
 					String suffix = Chatplugin.inst().getVaultData().getSuffix(player).replace("&", "§");
-					CHStreamOutApi.channelChat(sender.getName(), text, prefix, suffix, "STAFF");
+					CHStreamOutApi.channelChat(sender.getName(), text, prefix, suffix, "STAFF", "none");
 
 				}
 			});
 		} else {
-			sender.sendMessage(MessageDB.NO_PERMISSIONS);
+			sender.sendMessage(GlobalMessageDB.NO_PERMISSIONS);
 		}
 		return false;
 	}

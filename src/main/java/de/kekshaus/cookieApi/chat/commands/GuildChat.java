@@ -9,7 +9,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.kekshaus.cookieApi.bukkit.MessageDB;
+import de.kekshaus.cookieApi.bukkit.GlobalMessageDB;
 import de.kekshaus.cookieApi.chat.Chatplugin;
 import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
 import de.kekshaus.cookieApi.guild.database.HashDatabase;
@@ -36,7 +36,8 @@ public class GuildChat implements CommandExecutor {
 						return;
 					}
 					if (args.length == 0) {
-						sender.sendMessage("Du musst einen Text eingeben!");
+						CHStreamOutApi.channelSwitch(sender.getName(), "GUILD");
+						sender.sendMessage("§aDu schreibst jetzt im GildenChat!");
 						return;
 					}
 
@@ -46,12 +47,12 @@ public class GuildChat implements CommandExecutor {
 						text = text + arg;
 					}
 
-					CHStreamOutApi.guildChat(guild.getGuildName(), sender.getName(), text);
+					CHStreamOutApi.channelChat(sender.getName(), text, "none", "none", "GUILD", guild.getGuildName());
 
 				}
 			});
 		} else {
-			sender.sendMessage(MessageDB.NO_PERMISSIONS);
+			sender.sendMessage(GlobalMessageDB.NO_PERMISSIONS);
 		}
 		return false;
 	}

@@ -7,10 +7,13 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import de.kekshaus.cookieApi.bukkit.MessageDB;
+import de.kekshaus.cookieApi.bukkit.GlobalMessageDB;
 import de.kekshaus.cookieApi.chat.Chatplugin;
 import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
 import de.kekshaus.cookieApi.chat.database.ChatHASHDB;
+import de.kekshaus.cookieApi.guild.database.HashDatabase;
+import de.kekshaus.cookieApi.guild.objects.Guild;
+import de.kekshaus.cookieApi.guild.objects.GuildPlayer;
 
 public class ChatListener implements Listener {
 
@@ -23,9 +26,16 @@ public class ChatListener implements Listener {
 				String rawtext = event.getMessage();
 				String prefix = Chatplugin.inst().getVaultData().getPrefix(event.getPlayer()).replace("&", "§");
 				String suffix = Chatplugin.inst().getVaultData().getSuffix(event.getPlayer()).replace("&", "§");
-				CHStreamOutApi.channelChat(playername, rawtext, prefix, suffix, "NONE");
+				String guildName = "none";
+				GuildPlayer gPlayer = HashDatabase.getGuildPlayer(event.getPlayer().getName());
+				Guild guild = gPlayer.getGuild();
+				if (guild != null) {
+					guildName = guild.getGuildName();
+				}
+
+				CHStreamOutApi.channelChat(playername, rawtext, prefix, suffix, "NONE", guildName);
 			} else {
-				event.getPlayer().sendMessage(MessageDB.NO_PERMISSIONS);
+				event.getPlayer().sendMessage(GlobalMessageDB.NO_PERMISSIONS);
 			}
 		}
 	}
