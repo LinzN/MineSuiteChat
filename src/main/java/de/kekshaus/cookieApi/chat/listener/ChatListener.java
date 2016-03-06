@@ -26,7 +26,7 @@ public class ChatListener implements Listener {
 				String rawtext = event.getMessage();
 				String prefix = Chatplugin.inst().getVaultData().getPrefix(event.getPlayer()).replace("&", "§");
 				String suffix = Chatplugin.inst().getVaultData().getSuffix(event.getPlayer()).replace("&", "§");
-				String guildName = "none";
+				String guildName = "NONE";
 				GuildPlayer gPlayer = HashDatabase.getGuildPlayer(event.getPlayer().getName());
 				Guild guild = gPlayer.getGuild();
 				if (guild != null) {
