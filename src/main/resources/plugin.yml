@@ -5,7 +5,7 @@ authors: [Kekshaus]
 main: de.kekshaus.cookieApi.chat.Chatplugin
 softdepend: [Vault]
 load: POSTWORLD
-depend: [CookieApiBukkit]
+depend: [cookieApiBukkit]
 
 commands:
   gc:
