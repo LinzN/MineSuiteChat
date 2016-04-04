@@ -4,6 +4,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -32,12 +33,12 @@ public class GuildChat implements CommandExecutor {
 					GuildPlayer gPlayer = HashDatabase.getGuildPlayer(sender.getName());
 					Guild guild = gPlayer.getGuild();
 					if (guild == null) {
-						sender.sendMessage("Du bist in keiner Gilde!");
+						sender.sendMessage(ChatColor.GOLD + "Du bist in keiner Gilde!");
 						return;
 					}
 					if (args.length == 0) {
 						CHStreamOutApi.channelSwitch(sender.getName(), "GUILD");
-						sender.sendMessage("§aDu schreibst jetzt im GildenChat!");
+						sender.sendMessage(ChatColor.GREEN + "Du schreibst jetzt im GildenChat!");
 						return;
 					}
 
