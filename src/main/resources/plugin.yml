@@ -1,5 +1,5 @@
 name: cookieApiChat
-version: ${project.version}
+version: ${project.version}.b${build.number}
 description: Chatplugin
 authors: [Kekshaus]
 main: de.kekshaus.cookieApi.chat.Chatplugin
