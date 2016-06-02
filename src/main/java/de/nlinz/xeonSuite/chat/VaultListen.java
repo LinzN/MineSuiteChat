@@ -1,4 +1,4 @@
-package de.kekshaus.cookieApi.chat;
+package de.nlinz.xeonSuite.chat;
 
 import org.bukkit.entity.Player;
 

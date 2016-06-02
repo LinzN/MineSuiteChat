@@ -1,11 +1,11 @@
-package de.kekshaus.cookieApi.chat.api;
-
-import de.kekshaus.cookieApi.guild.database.DataBaseHASHApi;
-import de.kekshaus.cookieApi.guild.objects.Guild;
-import de.kekshaus.cookieApi.guild.objects.GuildPlayer;
+package de.nlinz.xeonSuite.chat.api;
 
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+
+import de.nlinz.xeonSuite.guild.database.DataBaseHASHApi;
+import de.nlinz.xeonSuite.guild.objects.Guild;
+import de.nlinz.xeonSuite.guild.objects.GuildPlayer;
 
 public class CHStreamInApi {
 

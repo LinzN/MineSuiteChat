@@ -1,4 +1,4 @@
-package de.kekshaus.cookieApi.chat.commands;
+package de.nlinz.xeonSuite.chat.commands;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -10,12 +10,12 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.kekshaus.cookieApi.bukkit.GlobalMessageDB;
-import de.kekshaus.cookieApi.chat.Chatplugin;
-import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
-import de.kekshaus.cookieApi.guild.database.HashDatabase;
-import de.kekshaus.cookieApi.guild.objects.Guild;
-import de.kekshaus.cookieApi.guild.objects.GuildPlayer;
+import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
+import de.nlinz.xeonSuite.chat.Chatplugin;
+import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
+import de.nlinz.xeonSuite.guild.database.HashDatabase;
+import de.nlinz.xeonSuite.guild.objects.Guild;
+import de.nlinz.xeonSuite.guild.objects.GuildPlayer;
 
 public class GuildChat implements CommandExecutor {
 	public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,

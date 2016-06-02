@@ -1,4 +1,4 @@
-package de.kekshaus.cookieApi.chat.database;
+package de.nlinz.xeonSuite.chat.database;
 
 import java.util.HashMap;
 

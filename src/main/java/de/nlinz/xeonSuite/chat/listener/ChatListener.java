@@ -1,4 +1,4 @@
-package de.kekshaus.cookieApi.chat.listener;
+package de.nlinz.xeonSuite.chat.listener;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -7,13 +7,13 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import de.kekshaus.cookieApi.bukkit.GlobalMessageDB;
-import de.kekshaus.cookieApi.chat.Chatplugin;
-import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
-import de.kekshaus.cookieApi.chat.database.ChatHASHDB;
-import de.kekshaus.cookieApi.guild.database.HashDatabase;
-import de.kekshaus.cookieApi.guild.objects.Guild;
-import de.kekshaus.cookieApi.guild.objects.GuildPlayer;
+import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
+import de.nlinz.xeonSuite.chat.Chatplugin;
+import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
+import de.nlinz.xeonSuite.chat.database.ChatHASHDB;
+import de.nlinz.xeonSuite.guild.database.HashDatabase;
+import de.nlinz.xeonSuite.guild.objects.Guild;
+import de.nlinz.xeonSuite.guild.objects.GuildPlayer;
 
 public class ChatListener implements Listener {
 

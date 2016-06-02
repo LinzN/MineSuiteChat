@@ -1,4 +1,4 @@
-package de.kekshaus.cookieApi.chat.commands;
+package de.nlinz.xeonSuite.chat.commands;
 
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -9,9 +9,9 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.kekshaus.cookieApi.bukkit.GlobalMessageDB;
-import de.kekshaus.cookieApi.chat.Chatplugin;
-import de.kekshaus.cookieApi.chat.api.CHStreamOutApi;
+import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
+import de.nlinz.xeonSuite.chat.Chatplugin;
+import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
 
 public class PrivateMSG implements CommandExecutor {
 	public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,

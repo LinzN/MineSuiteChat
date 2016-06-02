@@ -1,4 +1,4 @@
-package de.kekshaus.cookieApi.chat.listener;
+package de.nlinz.xeonSuite.chat.listener;
 
 import java.io.DataInputStream;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import de.keks.socket.bukkit.events.plugin.BukkitSockChatEvent;
 import de.keks.socket.core.ByteStreamConverter;
-import de.kekshaus.cookieApi.chat.api.CHStreamInApi;
+import de.nlinz.xeonSuite.chat.api.CHStreamInApi;
 
 public class BukkitSockChatListener implements Listener {
 

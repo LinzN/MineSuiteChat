@@ -1,11 +1,11 @@
-name: cookieApiChat
+name: XeonSuiteChat
 version: ${project.version}.b${build.number}
 description: Chatplugin
 authors: [Kekshaus]
-main: de.kekshaus.cookieApi.chat.Chatplugin
+main: de.nlinz.xeonSuite.chat.Chatplugin
 softdepend: [Vault]
 load: POSTWORLD
-depend: [cookieApiBukkit]
+depend: [XeonSuiteBukkit]
 
 commands:
   gc:

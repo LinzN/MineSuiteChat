@@ -1,16 +1,17 @@
-package de.kekshaus.cookieApi.chat;
+package de.nlinz.xeonSuite.chat;
 
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
-import de.kekshaus.cookieApi.chat.commands.Afk;
-import de.kekshaus.cookieApi.chat.commands.GlobalChat;
-import de.kekshaus.cookieApi.chat.commands.GuildChat;
-import de.kekshaus.cookieApi.chat.commands.PrivateMSG;
-import de.kekshaus.cookieApi.chat.commands.PrivateReply;
-import de.kekshaus.cookieApi.chat.commands.SocialSpy;
-import de.kekshaus.cookieApi.chat.commands.StaffChat;
-import de.kekshaus.cookieApi.chat.listener.BukkitSockChatListener;
-import de.kekshaus.cookieApi.chat.listener.ChatListener;
+
+import de.nlinz.xeonSuite.chat.commands.Afk;
+import de.nlinz.xeonSuite.chat.commands.GlobalChat;
+import de.nlinz.xeonSuite.chat.commands.GuildChat;
+import de.nlinz.xeonSuite.chat.commands.PrivateMSG;
+import de.nlinz.xeonSuite.chat.commands.PrivateReply;
+import de.nlinz.xeonSuite.chat.commands.SocialSpy;
+import de.nlinz.xeonSuite.chat.commands.StaffChat;
+import de.nlinz.xeonSuite.chat.listener.BukkitSockChatListener;
+import de.nlinz.xeonSuite.chat.listener.ChatListener;
 import net.milkbowl.vault.chat.Chat;
 
 public class Chatplugin extends JavaPlugin {

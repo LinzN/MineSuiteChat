@@ -1,8 +1,8 @@
-package de.kekshaus.cookieApi.chat.api;
+package de.nlinz.xeonSuite.chat.api;
 
 import de.keks.socket.bukkit.BukkitPlugin;
 import de.keks.socket.core.Channel;
-import de.kekshaus.cookieApi.chat.database.ChatHASHDB;
+import de.nlinz.xeonSuite.chat.database.ChatHASHDB;
 
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
