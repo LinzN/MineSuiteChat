@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import de.nlinz.javaSocket.client.api.XeonSocketClientManager;
-import de.nlinz.xeonSuite.chat.database.ChatDataTable;
+import de.nlinz.xeonSuite.bukkit.utils.tables.ChatDataTable;
 import de.nlinz.xeonSuite.chat.listener.XeonChat;
 
 public class CHStreamOutApi {
