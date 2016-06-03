@@ -13,7 +13,7 @@ import org.bukkit.entity.Player;
 import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
 import de.nlinz.xeonSuite.chat.Chatplugin;
 import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
-import de.nlinz.xeonSuite.guild.database.HashDatabase;
+import de.nlinz.xeonSuite.guild.database.GuildDataTable;
 import de.nlinz.xeonSuite.guild.objects.Guild;
 import de.nlinz.xeonSuite.guild.objects.GuildPlayer;
 
@@ -30,7 +30,7 @@ public class GuildChat implements CommandExecutor {
 		if (player.hasPermission("cookieApi.chat.gchat")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				public void run() {
-					GuildPlayer gPlayer = HashDatabase.getGuildPlayer(sender.getName());
+					GuildPlayer gPlayer = GuildDataTable.getGuildPlayer(sender.getName());
 					Guild guild = gPlayer.getGuild();
 					if (guild == null) {
 						sender.sendMessage(ChatColor.GOLD + "Du bist in keiner Gilde!");

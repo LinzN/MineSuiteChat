@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
 import de.nlinz.xeonSuite.chat.Chatplugin;
 import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
-import de.nlinz.xeonSuite.chat.database.ChatHASHDB;
+import de.nlinz.xeonSuite.chat.database.ChatDataTable;
 
 public class Afk implements CommandExecutor {
 	public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,
@@ -27,7 +27,7 @@ public class Afk implements CommandExecutor {
 		if (player.hasPermission("cookieApi.chat.afk")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				public void run() {
-					if (ChatHASHDB.isAfk(player.getName())) {
+					if (ChatDataTable.isAfk(player.getName())) {
 						CHStreamOutApi.setAfk(player.getName(), false);
 						player.sendMessage("§aDu bist nicht mehr AFK!");
 					} else {

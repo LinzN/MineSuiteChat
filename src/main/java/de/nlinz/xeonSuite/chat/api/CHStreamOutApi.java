@@ -5,7 +5,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 
 import de.nlinz.javaSocket.client.api.XeonSocketClientManager;
-import de.nlinz.xeonSuite.chat.database.ChatHASHDB;
+import de.nlinz.xeonSuite.chat.database.ChatDataTable;
 import de.nlinz.xeonSuite.chat.listener.XeonChat;
 
 public class CHStreamOutApi {
@@ -90,7 +90,7 @@ public class CHStreamOutApi {
 	}
 
 	public static void setAfk(String sender, boolean value) {
-		ChatHASHDB.setAfk(sender, value);
+		ChatDataTable.setAfk(sender, value);
 		ByteArrayOutputStream bytes = new ByteArrayOutputStream();
 		DataOutputStream out = XeonSocketClientManager.createChannel(bytes, XeonChat.channelName);
 		try {

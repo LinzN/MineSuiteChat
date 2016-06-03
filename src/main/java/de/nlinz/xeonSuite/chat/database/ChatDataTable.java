@@ -2,7 +2,7 @@ package de.nlinz.xeonSuite.chat.database;
 
 import java.util.HashMap;
 
-public class ChatHASHDB {
+public class ChatDataTable {
 	private static HashMap<String, Boolean> isafk = new HashMap<String, Boolean>();
 
 	public static boolean isAfk(String player) {

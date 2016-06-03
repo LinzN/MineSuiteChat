@@ -10,8 +10,8 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
 import de.nlinz.xeonSuite.chat.Chatplugin;
 import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
-import de.nlinz.xeonSuite.chat.database.ChatHASHDB;
-import de.nlinz.xeonSuite.guild.database.HashDatabase;
+import de.nlinz.xeonSuite.chat.database.ChatDataTable;
+import de.nlinz.xeonSuite.guild.database.GuildDataTable;
 import de.nlinz.xeonSuite.guild.objects.Guild;
 import de.nlinz.xeonSuite.guild.objects.GuildPlayer;
 
@@ -27,7 +27,7 @@ public class ChatListener implements Listener {
 				String prefix = Chatplugin.inst().getVaultData().getPrefix(event.getPlayer()).replace("&", "§");
 				String suffix = Chatplugin.inst().getVaultData().getSuffix(event.getPlayer()).replace("&", "§");
 				String guildName = "NONE";
-				GuildPlayer gPlayer = HashDatabase.getGuildPlayer(event.getPlayer().getName());
+				GuildPlayer gPlayer = GuildDataTable.getGuildPlayer(event.getPlayer().getName());
 				Guild guild = gPlayer.getGuild();
 				if (guild != null) {
 					guildName = guild.getGuildName();
@@ -42,7 +42,7 @@ public class ChatListener implements Listener {
 
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onDisconnect(PlayerQuitEvent event) {
-		if (ChatHASHDB.isAfk(event.getPlayer().getName())) {
+		if (ChatDataTable.isAfk(event.getPlayer().getName())) {
 			CHStreamOutApi.setAfk(event.getPlayer().getName(), false);
 			event.getPlayer().sendMessage("§aDu bist nicht mehr AFK!");
 		}
@@ -51,7 +51,7 @@ public class ChatListener implements Listener {
 	@EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
 	public void onMove(PlayerMoveEvent event) {
 		if (event.getFrom() != event.getTo()) {
-			if (ChatHASHDB.isAfk(event.getPlayer().getName())) {
+			if (ChatDataTable.isAfk(event.getPlayer().getName())) {
 				if (!event.getPlayer().hasPermission("cookieApi.chat.bypass")) {
 					CHStreamOutApi.setAfk(event.getPlayer().getName(), false);
 					event.getPlayer().sendMessage("§aDu bist nicht mehr AFK!");
