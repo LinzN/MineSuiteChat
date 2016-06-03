@@ -3,6 +3,7 @@ package de.nlinz.xeonSuite.chat;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import de.nlinz.javaSocket.client.api.XeonSocketClientManager;
 import de.nlinz.xeonSuite.chat.commands.Afk;
 import de.nlinz.xeonSuite.chat.commands.GlobalChat;
 import de.nlinz.xeonSuite.chat.commands.GuildChat;
@@ -10,8 +11,8 @@ import de.nlinz.xeonSuite.chat.commands.PrivateMSG;
 import de.nlinz.xeonSuite.chat.commands.PrivateReply;
 import de.nlinz.xeonSuite.chat.commands.SocialSpy;
 import de.nlinz.xeonSuite.chat.commands.StaffChat;
-import de.nlinz.xeonSuite.chat.listener.BukkitSockChatListener;
 import de.nlinz.xeonSuite.chat.listener.ChatListener;
+import de.nlinz.xeonSuite.chat.listener.XeonChat;
 import net.milkbowl.vault.chat.Chat;
 
 public class Chatplugin extends JavaPlugin {
@@ -19,15 +20,17 @@ public class Chatplugin extends JavaPlugin {
 	private Chat chat = null;
 	private VaultListen vault;
 
+	@Override
 	public void onEnable() {
 		inst = this;
 		getServer().getPluginManager().registerEvents(new ChatListener(), this);
-		getServer().getPluginManager().registerEvents(new BukkitSockChatListener(), this);
+		XeonSocketClientManager.registerDataListener(new XeonChat());
 		setupChat();
 		vault = new VaultListen();
 		loadCommands();
 	}
 
+	@Override
 	public void onDisable() {
 	}
 
