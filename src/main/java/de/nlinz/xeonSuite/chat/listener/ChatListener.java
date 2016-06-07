@@ -7,7 +7,7 @@ import org.bukkit.event.player.AsyncPlayerChatEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.event.player.PlayerQuitEvent;
 
-import de.nlinz.xeonSuite.bukkit.GlobalMessageDB;
+import de.nlinz.xeonSuite.bukkit.utils.languages.GlobalLanguage;
 import de.nlinz.xeonSuite.bukkit.utils.tables.ChatDataTable;
 import de.nlinz.xeonSuite.chat.Chatplugin;
 import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
@@ -35,7 +35,7 @@ public class ChatListener implements Listener {
 
 				CHStreamOutApi.channelChat(playername, rawtext, prefix, suffix, "NONE", guildName);
 			} else {
-				event.getPlayer().sendMessage(GlobalMessageDB.NO_PERMISSIONS);
+				event.getPlayer().sendMessage(GlobalLanguage.NO_PERMISSIONS);
 			}
 		}
 	}
