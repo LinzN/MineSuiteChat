@@ -26,7 +26,7 @@ public class CHStreamInApi {
 
 	public static void sendStaffChatMsg(String text) {
 		for (Player p : Bukkit.getOnlinePlayers()) {
-			if (p.hasPermission("cookieApi.chat.staff")) {
+			if (p.hasPermission("xeonSuite.chat.staff")) {
 				p.sendMessage(text);
 			}
 		}

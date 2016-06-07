@@ -28,7 +28,7 @@ public class GuildChat implements CommandExecutor {
 	@Override
 	public boolean onCommand(final CommandSender sender, Command cmd, String label, final String[] args) {
 		final Player player = (Player) sender;
-		if (player.hasPermission("cookieApi.chat.gchat")) {
+		if (player.hasPermission("xeonSuite.chat.gchat")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				@Override
 				public void run() {

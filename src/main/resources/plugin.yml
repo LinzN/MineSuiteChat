@@ -30,45 +30,45 @@ commands:
     description: SocialSpy
 
 permissions:
-    cookieApi.chat.team:
+    xeonSuite.chat.team:
         description: Alle User Permissions
         children:
-            cookieApi.chat.user: true
-            cookieApi.chat.socialspy: true
-            cookieApi.chat.bypass: true
-    cookieApi.chat.user:
+            xeonSuite.chat.user: true
+            xeonSuite.chat.socialspy: true
+            xeonSuite.chat.bypass: true
+    xeonSuite.chat.user:
         description: Alle User Permissions
         children:
-            cookieApi.chat.gchat: true
-            cookieApi.chat.pm: true
-            cookieApi.chat.reply: true
-            cookieApi.chat.afk: true
-            cookieApi.chat.global: true
-            cookieApi.chat.use: true
-    cookieApi.chat.gchat:
+            xeonSuite.chat.gchat: true
+            xeonSuite.chat.pm: true
+            xeonSuite.chat.reply: true
+            xeonSuite.chat.afk: true
+            xeonSuite.chat.global: true
+            xeonSuite.chat.use: true
+    xeonSuite.chat.gchat:
         description: GuildChat
         default: op
-    cookieApi.chat.afk:
+    xeonSuite.chat.afk:
         description: GuildChat
         default: op
-    cookieApi.chat.pm:
+    xeonSuite.chat.pm:
         description: GuildChat
         default: op
-    cookieApi.chat.reply:
+    xeonSuite.chat.reply:
         description: GuildChat
         default: op
-    cookieApi.chat.staff:
+    xeonSuite.chat.staff:
         description: GuildChat
         default: op
-    cookieApi.chat.global:
+    xeonSuite.chat.global:
         description: GuildChat
         default: op
-    cookieApi.chat.use:
+    xeonSuite.chat.use:
         description: GuildChat
         default: op
-    cookieApi.chat.socialspy:
+    xeonSuite.chat.socialspy:
         description: Socialspy
         default: op
-    cookieApi.chat.bypass:
+    xeonSuite.chat.bypass:
         description: Bypass
         default: op

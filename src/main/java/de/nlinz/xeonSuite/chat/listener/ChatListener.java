@@ -21,7 +21,7 @@ public class ChatListener implements Listener {
 	public void onChat(AsyncPlayerChatEvent event) {
 		if (!event.isCancelled()) {
 			event.setCancelled(true);
-			if (event.getPlayer().hasPermission("cookieApi.chat.use")) {
+			if (event.getPlayer().hasPermission("xeonSuite.chat.use")) {
 				String playername = event.getPlayer().getDisplayName();
 				String rawtext = event.getMessage();
 				String prefix = Chatplugin.inst().getVaultData().getPrefix(event.getPlayer()).replace("&", "§");
@@ -52,7 +52,7 @@ public class ChatListener implements Listener {
 	public void onMove(PlayerMoveEvent event) {
 		if (event.getFrom() != event.getTo()) {
 			if (ChatDataTable.isAfk(event.getPlayer().getName())) {
-				if (!event.getPlayer().hasPermission("cookieApi.chat.bypass")) {
+				if (!event.getPlayer().hasPermission("xeonSuite.chat.bypass")) {
 					CHStreamOutApi.setAfk(event.getPlayer().getName(), false);
 					event.getPlayer().sendMessage("§aDu bist nicht mehr AFK!");
 				}

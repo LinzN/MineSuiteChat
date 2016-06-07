@@ -25,7 +25,7 @@ public class Afk implements CommandExecutor {
 	@Override
 	public boolean onCommand(final CommandSender sender, Command cmd, String label, final String[] args) {
 		final Player player = (Player) sender;
-		if (player.hasPermission("cookieApi.chat.afk")) {
+		if (player.hasPermission("xeonSuite.chat.afk")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				@Override
 				public void run() {

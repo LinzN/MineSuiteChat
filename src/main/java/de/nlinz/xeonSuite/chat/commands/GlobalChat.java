@@ -24,7 +24,7 @@ public class GlobalChat implements CommandExecutor {
 	@Override
 	public boolean onCommand(final CommandSender sender, Command cmd, String label, final String[] args) {
 		final Player player = (Player) sender;
-		if (player.hasPermission("cookieApi.chat.global")) {
+		if (player.hasPermission("xeonSuite.chat.global")) {
 			this.executorServiceCommands.submit(new Runnable() {
 				@Override
 				public void run() {
