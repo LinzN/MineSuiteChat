@@ -10,7 +10,7 @@ import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import de.nlinz.xeonSuite.bukkit.utils.languages.GlobalLanguage;
+import de.nlinz.xeonSuite.bukkit.utils.languages.GeneralLanguage;
 import de.nlinz.xeonSuite.chat.Chatplugin;
 import de.nlinz.xeonSuite.chat.api.CHStreamOutApi;
 import de.nlinz.xeonSuite.guild.database.GuildData;
@@ -55,7 +55,7 @@ public class GuildChat implements CommandExecutor {
 				}
 			});
 		} else {
-			sender.sendMessage(GlobalLanguage.NO_PERMISSIONS);
+			sender.sendMessage(GeneralLanguage.NO_PERMISSIONS);
 		}
 		return false;
 	}
