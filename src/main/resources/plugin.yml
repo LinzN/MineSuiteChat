@@ -36,6 +36,7 @@ permissions:
             xeonSuite.chat.user: true
             xeonSuite.chat.socialspy: true
             xeonSuite.chat.bypass: true
+            xeonSuite.chat.staff: true
     xeonSuite.chat.user:
         description: Alle User Permissions
         children:
