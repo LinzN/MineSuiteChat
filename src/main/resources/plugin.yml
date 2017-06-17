@@ -1,5 +1,5 @@
 name: XeonSuiteChat
-version: ${project.version}.b${build.number}
+version: ${project.version}
 description: Chatplugin
 authors: [Kekshaus]
 main: de.nlinz.xeonSuite.chat.Chatplugin
