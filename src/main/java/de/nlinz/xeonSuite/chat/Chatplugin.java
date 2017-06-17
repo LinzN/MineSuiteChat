@@ -1,5 +1,6 @@
 package de.nlinz.xeonSuite.chat;
 
+import org.bstats.Metrics;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -28,6 +29,7 @@ public class Chatplugin extends JavaPlugin {
 		setupChat();
 		vault = new VaultListen();
 		loadCommands();
+		new Metrics(this);
 	}
 
 	@Override
