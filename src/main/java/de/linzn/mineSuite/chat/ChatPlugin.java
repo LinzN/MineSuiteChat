@@ -59,6 +59,8 @@ public class ChatPlugin extends JavaPlugin {
         getCommand("g").setExecutor(new GlobalChat(this));
         getCommand("afk").setExecutor(new Afk(this));
         getCommand("spy").setExecutor(new SocialSpy(this));
+        getCommand("h").setExecutor(new TradeChat(this));
+        getCommand("bc").setExecutor(new BroadcastChat(this));
     }
 
     private void setupChat() {

@@ -29,7 +29,7 @@ public class ChatListener implements Listener {
     public void onChat(AsyncPlayerChatEvent event) {
         if (!event.isCancelled()) {
             event.setCancelled(true);
-            if (event.getPlayer().hasPermission("xeonSuite.chat.use")) {
+            if (event.getPlayer().hasPermission("mineSuite.chat.use")) {
                 String playername = event.getPlayer().getDisplayName();
                 String rawtext = event.getMessage();
                 String prefix = ChatPlugin.inst().getVaultData().getPrefix(event.getPlayer()).replace("&", "§");

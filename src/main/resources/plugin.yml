@@ -19,6 +19,12 @@ commands:
   g:
     aliases: [global, me]
     description: GlobalChat
+  h:
+    aliases: [trade, handel]
+    description: TradeChat
+  bc:
+    aliases: [broadcast]
+    description: BroadCast
   afk:
     description: AFK
   spy:
@@ -33,6 +39,7 @@ permissions:
             mineSuite.chat.socialspy: true
             mineSuite.chat.bypass: true
             mineSuite.chat.staff: true
+            mineSuite.chat.broadcast: true
     mineSuite.chat.user:
         description: Alle User Permissions
         children:
@@ -42,6 +49,7 @@ permissions:
             mineSuite.chat.afk: true
             mineSuite.chat.global: true
             mineSuite.chat.use: true
+            mineSuite.chat.trade: true
     mineSuite.chat.gchat:
         description: GuildChat
         default: op
@@ -59,6 +67,12 @@ permissions:
         default: op
     mineSuite.chat.global:
         description: GuildChat
+        default: op
+    mineSuite.chat.trade:
+        description: TradeChat
+        default: op
+    mineSuite.chat.broadcast:
+        description: BroadcastChat
         default: op
     mineSuite.chat.use:
         description: GuildChat
