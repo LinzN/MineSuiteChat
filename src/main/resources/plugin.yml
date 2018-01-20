@@ -1,16 +1,12 @@
-name: XeonSuiteChat
+name: MineSuiteChat
 version: ${project.version}
-description: Chatplugin
+description: ChatPlugin
 authors: [Kekshaus]
-main: de.nlinz.xeonSuite.chat.Chatplugin
-softdepend: [Vault]
+main: de.linzn.mineSuite.chat.ChatPlugin
 load: POSTWORLD
-depend: [XeonSuiteBukkit]
+depend: [MineSuiteCore, Vault]
 
 commands:
-  gc:
-    aliases: [guildchat, guildc]
-    description: GuildChat
   msg:
     aliases: [pm, tell]
     description: MSG
@@ -21,7 +17,7 @@ commands:
     aliases: [ac, a]
     description: TeamChat
   g:
-    aliases: [global, gc, me]
+    aliases: [global, me]
     description: GlobalChat
   afk:
     description: AFK
@@ -30,46 +26,46 @@ commands:
     description: SocialSpy
 
 permissions:
-    xeonSuite.chat.team:
+    mineSuite.chat.team:
         description: Alle User Permissions
         children:
-            xeonSuite.chat.user: true
-            xeonSuite.chat.socialspy: true
-            xeonSuite.chat.bypass: true
-            xeonSuite.chat.staff: true
-    xeonSuite.chat.user:
+            mineSuite.chat.user: true
+            mineSuite.chat.socialspy: true
+            mineSuite.chat.bypass: true
+            mineSuite.chat.staff: true
+    mineSuite.chat.user:
         description: Alle User Permissions
         children:
-            xeonSuite.chat.gchat: true
-            xeonSuite.chat.pm: true
-            xeonSuite.chat.reply: true
-            xeonSuite.chat.afk: true
-            xeonSuite.chat.global: true
-            xeonSuite.chat.use: true
-    xeonSuite.chat.gchat:
+            mineSuite.chat.gchat: true
+            mineSuite.chat.pm: true
+            mineSuite.chat.reply: true
+            mineSuite.chat.afk: true
+            mineSuite.chat.global: true
+            mineSuite.chat.use: true
+    mineSuite.chat.gchat:
         description: GuildChat
         default: op
-    xeonSuite.chat.afk:
+    mineSuite.chat.afk:
         description: GuildChat
         default: op
-    xeonSuite.chat.pm:
+    mineSuite.chat.pm:
         description: GuildChat
         default: op
-    xeonSuite.chat.reply:
+    mineSuite.chat.reply:
         description: GuildChat
         default: op
-    xeonSuite.chat.staff:
+    mineSuite.chat.staff:
         description: GuildChat
         default: op
-    xeonSuite.chat.global:
+    mineSuite.chat.global:
         description: GuildChat
         default: op
-    xeonSuite.chat.use:
+    mineSuite.chat.use:
         description: GuildChat
         default: op
-    xeonSuite.chat.socialspy:
+    mineSuite.chat.socialspy:
         description: Socialspy
         default: op
-    xeonSuite.chat.bypass:
+    mineSuite.chat.bypass:
         description: Bypass
         default: op
