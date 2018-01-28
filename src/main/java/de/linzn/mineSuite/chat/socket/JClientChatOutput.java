@@ -120,4 +120,16 @@ public class JClientChatOutput {
         MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
     }
 
+    public static void sendVote(String sender) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        try {
+            dataOutputStream.writeUTF("client_chat-vote-informer");
+            dataOutputStream.writeUTF(sender);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
+    }
+
 }

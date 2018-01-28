@@ -24,32 +24,20 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 
-public class BroadcastChat implements CommandExecutor {
+public class TestVote implements CommandExecutor {
     public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<>());
 
-    public BroadcastChat(ChatPlugin instance) {
+    public TestVote(ChatPlugin instance) {
 
     }
 
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, final String[] args) {
         final Player player = (Player) sender;
-        if (player.hasPermission("mineSuite.chat.broadcast")) {
+        if (player.hasPermission("mineSuite.chat.testvote")) {
             this.executorServiceCommands.submit(() -> {
-                if (args.length == 0) {
-                    sender.sendMessage("§cSwitch ist leider nicht möglich!");
-                    return;
-                }
-                String text = "";
-                for (int i = 0; i < args.length; i++) {
-                    String arg = args[i] + " ";
-                    text = text + arg;
-                }
-                String prefix = ChatPlugin.inst().getVaultData().getPrefix(player).replace("&", "§");
-                String suffix = ChatPlugin.inst().getVaultData().getSuffix(player).replace("&", "§");
-                JClientChatOutput.channelChat(sender.getName(), text, prefix, suffix, "BROADCAST");
-
+                JClientChatOutput.sendVote(sender.getName());
             });
         } else {
             sender.sendMessage(GeneralLanguage.global_NO_PERMISSIONS);

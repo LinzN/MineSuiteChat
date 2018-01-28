@@ -4,9 +4,11 @@ description: ChatPlugin
 authors: [Kekshaus]
 main: de.linzn.mineSuite.chat.ChatPlugin
 load: POSTWORLD
-depend: [MineSuiteCore, Vault]
+depend: [MineSuiteCore, Vault, Votifier]
 
 commands:
+  testvote:
+    description: TeamChat
   msg:
     aliases: [pm, tell]
     description: MSG
@@ -40,6 +42,7 @@ permissions:
             mineSuite.chat.bypass: true
             mineSuite.chat.staff: true
             mineSuite.chat.broadcast: true
+            mineSuite.chat.testvote: true
     mineSuite.chat.user:
         description: Alle User Permissions
         children:
@@ -81,5 +84,8 @@ permissions:
         description: Socialspy
         default: op
     mineSuite.chat.bypass:
+        description: Bypass
+        default: op
+    mineSuite.chat.testvote:
         description: Bypass
         default: op

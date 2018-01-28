@@ -14,6 +14,7 @@ package de.linzn.mineSuite.chat;
 
 import de.linzn.mineSuite.chat.commands.*;
 import de.linzn.mineSuite.chat.listener.ChatListener;
+import de.linzn.mineSuite.chat.listener.VoteListener;
 import de.linzn.mineSuite.chat.socket.JClientChatListener;
 import de.linzn.mineSuite.chat.utils.VaultAccess;
 import de.linzn.mineSuite.core.MineSuiteCorePlugin;
@@ -34,6 +35,7 @@ public class ChatPlugin extends JavaPlugin {
     public void onEnable() {
         inst = this;
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
+        getServer().getPluginManager().registerEvents(new VoteListener(), this);
         MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.registerIncomingDataListener("mineSuiteChat", new JClientChatListener());
         setupChat();
         vault = new VaultAccess();
@@ -61,6 +63,7 @@ public class ChatPlugin extends JavaPlugin {
         getCommand("spy").setExecutor(new SocialSpy(this));
         getCommand("h").setExecutor(new TradeChat(this));
         getCommand("bc").setExecutor(new BroadcastChat(this));
+        getCommand("testvote").setExecutor(new TestVote(this));
     }
 
     private void setupChat() {

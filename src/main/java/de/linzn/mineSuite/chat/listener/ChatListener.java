@@ -13,7 +13,7 @@ package de.linzn.mineSuite.chat.listener;
 
 import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
-import de.linzn.mineSuite.core.MineSuiteCorePlugin;
+import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
 import de.linzn.mineSuite.core.database.hashDatabase.ChatDataTable;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -42,7 +42,7 @@ public class ChatListener implements Listener {
                 //}
                 JClientChatOutput.channelChat(playername, rawtext, prefix, suffix, "NONE");
             } else {
-                event.getPlayer().sendMessage(MineSuiteCorePlugin.getInstance().getMineConfigs().generalLanguage.NO_PERMISSIONS);
+                event.getPlayer().sendMessage(GeneralLanguage.global_NO_PERMISSIONS);
             }
         }
     }

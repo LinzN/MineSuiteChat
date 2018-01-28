@@ -13,7 +13,7 @@ package de.linzn.mineSuite.chat.commands;
 
 import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
-import de.linzn.mineSuite.core.MineSuiteCorePlugin;
+import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -38,7 +38,7 @@ public class SocialSpy implements CommandExecutor {
 		if (player.hasPermission("mineSuite.chat.socialspy")) {
 			this.executorServiceCommands.submit(() -> JClientChatOutput.setSocialSpy(player.getName()));
 		} else {
-			sender.sendMessage(MineSuiteCorePlugin.getInstance().getMineConfigs().generalLanguage.NO_PERMISSIONS);
+            sender.sendMessage(GeneralLanguage.global_NO_PERMISSIONS);
 		}
 		return true;
 	}
