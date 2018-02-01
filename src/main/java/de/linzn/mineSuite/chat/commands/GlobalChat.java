@@ -39,7 +39,7 @@ public class GlobalChat implements CommandExecutor {
             this.executorServiceCommands.submit(() -> {
                 if (args.length == 0) {
                     JClientChatOutput.channelSwitch(sender.getName(), "GLOBAL");
-                    sender.sendMessage("§aDu schreibst jetzt im GlobalChat!");
+                    sender.sendMessage(GeneralLanguage.chat_SWITCH.replace("{channel}", "GLOBAL"));
                     return;
                 }
                 String text = "";

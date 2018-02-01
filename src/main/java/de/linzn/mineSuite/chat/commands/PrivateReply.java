@@ -37,7 +37,7 @@ public class PrivateReply implements CommandExecutor {
 		if (player.hasPermission("mineSuite.chat.reply")) {
 			this.executorServiceCommands.submit(() -> {
 				if (args.length == 0) {
-					sender.sendMessage("Du musst einen Text eingeben!");
+					sender.sendMessage(GeneralLanguage.chat_NO_TEXT);
 					return;
 				}
 				String text = "";

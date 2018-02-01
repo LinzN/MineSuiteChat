@@ -39,7 +39,7 @@ public class TradeChat implements CommandExecutor {
             this.executorServiceCommands.submit(() -> {
                 if (args.length == 0) {
                     JClientChatOutput.channelSwitch(sender.getName(), "TRADE");
-                    sender.sendMessage("§aDu schreibst jetzt im HandelsChat!");
+                    sender.sendMessage(GeneralLanguage.chat_SWITCH.replace("{channel}", "Handel "));
                     return;
                 }
                 String text = "";

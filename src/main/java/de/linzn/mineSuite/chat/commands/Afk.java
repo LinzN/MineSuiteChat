@@ -40,10 +40,10 @@ public class Afk implements CommandExecutor {
 			this.executorServiceCommands.submit(() -> {
 				if (ChatDataTable.isAfk(player.getName())) {
 					JClientChatOutput.setAfk(player.getName(), false);
-					player.sendMessage("§aDu bist nicht mehr AFK!");
+                    player.sendMessage(GeneralLanguage.chat_AFK_OFF);
 				} else {
 					JClientChatOutput.setAfk(player.getName(), true);
-					player.sendMessage("§aDu bist jetzt AFK!");
+                    player.sendMessage(GeneralLanguage.chat_AFK_ON);
 				}
 			});
 		} else {

@@ -51,7 +51,7 @@ public class ChatListener implements Listener {
     public void onDisconnect(PlayerQuitEvent event) {
         if (ChatDataTable.isAfk(event.getPlayer().getName())) {
             JClientChatOutput.setAfk(event.getPlayer().getName(), false);
-            event.getPlayer().sendMessage("§aDu bist nicht mehr AFK!");
+            event.getPlayer().sendMessage(GeneralLanguage.chat_AFK_ON);
         }
     }
 
@@ -61,7 +61,7 @@ public class ChatListener implements Listener {
             if (ChatDataTable.isAfk(event.getPlayer().getName())) {
                 if (!event.getPlayer().hasPermission("mineSuite.chat.bypass")) {
                     JClientChatOutput.setAfk(event.getPlayer().getName(), false);
-                    event.getPlayer().sendMessage("§aDu bist nicht mehr AFK!");
+                    event.getPlayer().sendMessage(GeneralLanguage.chat_AFK_OFF);
                 }
             }
         }

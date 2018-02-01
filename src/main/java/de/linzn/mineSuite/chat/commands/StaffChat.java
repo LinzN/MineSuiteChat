@@ -39,7 +39,7 @@ public class StaffChat implements CommandExecutor {
             this.executorServiceCommands.submit(() -> {
                 if (args.length == 0) {
                     JClientChatOutput.channelSwitch(sender.getName(), "STAFF");
-                    sender.sendMessage("§aDu schreibst jetzt im TeamChat!");
+                    sender.sendMessage(GeneralLanguage.chat_SWITCH.replace("{channel}", "STAFF"));
                     return;
                 }
                 String text = "";

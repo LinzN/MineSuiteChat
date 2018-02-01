@@ -38,7 +38,7 @@ public class BroadcastChat implements CommandExecutor {
         if (player.hasPermission("mineSuite.chat.broadcast")) {
             this.executorServiceCommands.submit(() -> {
                 if (args.length == 0) {
-                    sender.sendMessage("§cSwitch ist leider nicht möglich!");
+                    sender.sendMessage(GeneralLanguage.chat_SWITCH_DISABLED);
                     return;
                 }
                 String text = "";
