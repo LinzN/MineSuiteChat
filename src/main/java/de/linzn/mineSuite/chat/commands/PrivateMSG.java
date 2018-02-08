@@ -36,7 +36,7 @@ public class PrivateMSG implements CommandExecutor {
 		final Player player = (Player) sender;
 		if (player.hasPermission("mineSuite.chat.pm")) {
 			this.executorServiceCommands.submit(() -> {
-				if (args.length <= 2) {
+				if (args.length <= 1) {
 					sender.sendMessage(GeneralLanguage.chat_MSG_USAGE);
 					return;
 				}
