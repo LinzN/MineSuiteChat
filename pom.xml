@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.12.2-R0.1-SNAPSHOT</version>
+            <version>1.13-pre7-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -43,7 +43,7 @@
             <version>1.9</version>
             <scope>system</scope>
             <optional>true</optional>
-            <systemPath>${project.basedir}/lib/Votifier.jar</systemPath>
+            <systemPath>${project.basedir}/lib/votifier.jar</systemPath>
         </dependency>
     </dependencies>
     <build>
