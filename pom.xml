@@ -12,6 +12,10 @@
             <id>spigot-server-repo</id>
             <url>http://maven.elmakers.com/repository/</url>
         </repository>
+        <repository>
+            <id>enigmar-repo</id>
+            <url>https://repository.enigmar.de/</url>
+        </repository>
     </repositories>
     <dependencies>
         <!--Spigot API -->
@@ -84,7 +88,6 @@
     <artifactId>mineSuiteChat</artifactId>
     <version>2.1.0</version>
     <groupId>de.linzn</groupId>
-
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
