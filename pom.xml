@@ -42,12 +42,10 @@
             <version>2.1.0</version>
         </dependency>
         <dependency>
-            <groupId>Votifier</groupId>
-            <artifactId>Votifier</artifactId>
-            <version>1.9</version>
-            <scope>system</scope>
-            <optional>true</optional>
-            <systemPath>${project.basedir}/lib/votifier.jar</systemPath>
+            <groupId>com.vexsoftware</groupId>
+            <artifactId>votifier</artifactId>
+            <version>1.9.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
     <build>
