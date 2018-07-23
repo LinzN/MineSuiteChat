@@ -5,7 +5,7 @@ authors: [Kekshaus]
 main: de.linzn.mineSuite.chat.ChatPlugin
 load: POSTWORLD
 depend: [MineSuiteCore, Vault, Votifier]
-
+api-version: 1.13
 commands:
   testvote:
     description: TeamChat
