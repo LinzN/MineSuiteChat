@@ -46,16 +46,12 @@ permissions:
     mineSuite.chat.user:
         description: Alle User Permissions
         children:
-            mineSuite.chat.gchat: true
             mineSuite.chat.pm: true
             mineSuite.chat.reply: true
             mineSuite.chat.afk: true
             mineSuite.chat.global: true
             mineSuite.chat.use: true
             mineSuite.chat.trade: true
-    mineSuite.chat.gchat:
-        description: GuildChat
-        default: op
     mineSuite.chat.afk:
         description: GuildChat
         default: op
