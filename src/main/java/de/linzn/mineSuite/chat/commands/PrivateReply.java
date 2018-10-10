@@ -13,6 +13,7 @@ package de.linzn.mineSuite.chat.commands;
 
 import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
+import de.linzn.mineSuite.chat.utils.VaultAccess;
 import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -45,7 +46,7 @@ public class PrivateReply implements CommandExecutor {
 					String arg = args[i] + " ";
 					text = text + arg;
 				}
-				String prefix = ChatPlugin.inst().getVaultData().getPrefix(player).replace("&", "§");
+				String prefix = VaultAccess.getPrefix(player).replace("&", "§");
 				JClientChatOutput.privateReply(player.getDisplayName(), text, prefix);
 
 			});

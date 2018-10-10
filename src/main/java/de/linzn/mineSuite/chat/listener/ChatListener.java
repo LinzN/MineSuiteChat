@@ -13,6 +13,7 @@ package de.linzn.mineSuite.chat.listener;
 
 import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
+import de.linzn.mineSuite.chat.utils.VaultAccess;
 import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
 import de.linzn.mineSuite.core.database.hashDatabase.ChatDataTable;
 import org.bukkit.event.EventHandler;
@@ -32,14 +33,8 @@ public class ChatListener implements Listener {
             if (event.getPlayer().hasPermission("mineSuite.chat.use")) {
                 String playername = event.getPlayer().getDisplayName();
                 String rawtext = event.getMessage();
-                String prefix = ChatPlugin.inst().getVaultData().getPrefix(event.getPlayer()).replace("&", "§");
-                String suffix = ChatPlugin.inst().getVaultData().getSuffix(event.getPlayer()).replace("&", "§");
-                //String guildName = "NONE";
-                //GuildPlayer gPlayer = GuildData.getGuildPlayer(event.getPlayer().getName());
-                //Guild guild = gPlayer.getGuild();
-                //if (guild != null) {
-                //	guildName = guild.getGuildName();
-                //}
+                String prefix = VaultAccess.getPrefix(event.getPlayer()).replace("&", "§");
+                String suffix = VaultAccess.getSuffix(event.getPlayer()).replace("&", "§");
                 JClientChatOutput.channelChat(playername, rawtext, prefix, suffix, "NONE");
             } else {
                 event.getPlayer().sendMessage(GeneralLanguage.global_NO_PERMISSIONS);

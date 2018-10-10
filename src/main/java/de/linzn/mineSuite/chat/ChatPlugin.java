@@ -24,8 +24,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChatPlugin extends JavaPlugin {
     private static ChatPlugin inst;
-    private Chat chat = null;
-    private VaultAccess vault;
 
     public static ChatPlugin inst() {
         return inst;
@@ -37,8 +35,6 @@ public class ChatPlugin extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
         getServer().getPluginManager().registerEvents(new VoteListener(), this);
         MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.registerIncomingDataListener("mineSuiteChat", new JClientChatListener());
-        setupChat();
-        vault = new VaultAccess();
         loadCommands();
     }
 
@@ -47,12 +43,9 @@ public class ChatPlugin extends JavaPlugin {
     }
 
     public Chat getChat() {
-        return this.chat;
+        return MineSuiteCorePlugin.getChat();
     }
 
-    public VaultAccess getVaultData() {
-        return vault;
-    }
 
     public void loadCommands() {
         getCommand("msg").setExecutor(new PrivateMSG(this));
@@ -64,14 +57,5 @@ public class ChatPlugin extends JavaPlugin {
         getCommand("h").setExecutor(new TradeChat(this));
         getCommand("bc").setExecutor(new BroadcastChat(this));
         getCommand("testvote").setExecutor(new TestVote(this));
-    }
-
-    private void setupChat() {
-        RegisteredServiceProvider<Chat> chatProvider = getServer().getServicesManager()
-                .getRegistration(net.milkbowl.vault.chat.Chat.class);
-        if (chatProvider != null) {
-            chat = chatProvider.getProvider();
-            this.getLogger().info("Using Vault");
-        }
     }
 }

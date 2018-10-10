@@ -17,7 +17,7 @@ import org.bukkit.entity.Player;
 
 public class VaultAccess {
 
-    public String getPrefix(Player player) {
+    public static String getPrefix(Player player) {
         Chat chat = ChatPlugin.inst().getChat();
         String group = chat.getPrimaryGroup(player);
 
@@ -30,7 +30,7 @@ public class VaultAccess {
         return "";
     }
 
-    public String getSuffix(Player player) {
+    public static String getSuffix(Player player) {
         Chat chat = ChatPlugin.inst().getChat();
         String group = chat.getPrimaryGroup(player);
 
@@ -43,7 +43,7 @@ public class VaultAccess {
         return "";
     }
 
-    public String getGroup(Player player) {
+    public static String getGroup(Player player) {
         Chat chat = ChatPlugin.inst().getChat();
         return chat.getPrimaryGroup(player);
     }
