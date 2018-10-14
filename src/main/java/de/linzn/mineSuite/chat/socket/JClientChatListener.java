@@ -29,13 +29,6 @@ public class JClientChatListener implements IncomingDataListener {
         try {
             subChannel = in.readUTF();
 
-            if (subChannel.equals("server_chat_guild-chat")) {
-                String guild = in.readUTF();
-                String text = in.readUTF();
-                //ChatManager.sendguildChatMsg(guild, text);
-                System.out.println("Guild chat for guild " + guild + ": " + text);
-            }
-
             if (subChannel.equals("server_chat_staff-chat")) {
                 String text = in.readUTF();
                 ChatManager.sendStaffChatMsg(text);

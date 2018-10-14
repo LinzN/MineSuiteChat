@@ -53,19 +53,19 @@ permissions:
             mineSuite.chat.use: true
             mineSuite.chat.trade: true
     mineSuite.chat.afk:
-        description: GuildChat
+        description: afk
         default: op
     mineSuite.chat.pm:
-        description: GuildChat
+        description: msg
         default: op
     mineSuite.chat.reply:
-        description: GuildChat
+        description: msg
         default: op
     mineSuite.chat.staff:
-        description: GuildChat
+        description: teamchat
         default: op
     mineSuite.chat.global:
-        description: GuildChat
+        description: global
         default: op
     mineSuite.chat.trade:
         description: TradeChat
@@ -74,7 +74,7 @@ permissions:
         description: BroadcastChat
         default: op
     mineSuite.chat.use:
-        description: GuildChat
+        description: usechat
         default: op
     mineSuite.chat.socialspy:
         description: Socialspy
@@ -83,5 +83,5 @@ permissions:
         description: Bypass
         default: op
     mineSuite.chat.testvote:
-        description: Bypass
+        description: testvote
         default: op

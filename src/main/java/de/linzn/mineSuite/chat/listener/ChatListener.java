@@ -46,7 +46,7 @@ public class ChatListener implements Listener {
     public void onDisconnect(PlayerQuitEvent event) {
         if (ChatDataTable.isAfk(event.getPlayer().getName())) {
             JClientChatOutput.setAfk(event.getPlayer().getName(), false);
-            event.getPlayer().sendMessage(GeneralLanguage.chat_AFK_ON);
+            event.getPlayer().sendMessage(GeneralLanguage.chat_AFK_OFF);
         }
     }
 

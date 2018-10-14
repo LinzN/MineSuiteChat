@@ -21,21 +21,6 @@ import java.io.IOException;
 
 public class JClientChatOutput {
 
-    public static void guildChat(String guild, String sender, String text) {
-        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
-        try {
-            dataOutputStream.writeUTF("client_chat_guild-chat");
-            dataOutputStream.writeUTF(guild);
-            dataOutputStream.writeUTF(sender);
-            dataOutputStream.writeUTF(text);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
-
-    }
-
     public static void channelChat(String sender, String rawtext, String prefix, String suffix, String channel) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
