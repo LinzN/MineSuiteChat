@@ -36,9 +36,7 @@ public class TestVote implements CommandExecutor {
     public boolean onCommand(final CommandSender sender, Command cmd, String label, final String[] args) {
         final Player player = (Player) sender;
         if (player.hasPermission("mineSuite.chat.testvote")) {
-            this.executorServiceCommands.submit(() -> {
-                JClientChatOutput.sendVote(sender.getName(), 10);
-            });
+            this.executorServiceCommands.submit(() -> JClientChatOutput.sendVote(sender.getName(), 10));
         } else {
             sender.sendMessage(GeneralLanguage.global_NO_PERMISSIONS);
         }
