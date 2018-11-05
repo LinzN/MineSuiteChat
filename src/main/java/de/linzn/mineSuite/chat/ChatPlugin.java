@@ -16,14 +16,14 @@ import de.linzn.mineSuite.chat.commands.*;
 import de.linzn.mineSuite.chat.listener.ChatListener;
 import de.linzn.mineSuite.chat.listener.VoteListener;
 import de.linzn.mineSuite.chat.socket.JClientChatListener;
-import de.linzn.mineSuite.chat.utils.VaultAccess;
 import de.linzn.mineSuite.core.MineSuiteCorePlugin;
 import net.milkbowl.vault.chat.Chat;
-import org.bukkit.plugin.RegisteredServiceProvider;
+import net.milkbowl.vault.economy.Economy;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class ChatPlugin extends JavaPlugin {
     private static ChatPlugin inst;
+    private boolean isVotifier = false;
 
     public static ChatPlugin inst() {
         return inst;
@@ -32,8 +32,13 @@ public class ChatPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
         inst = this;
+        if (this.getServer().getPluginManager().isPluginEnabled("Votifier")) {
+            this.isVotifier = true;
+        }
         getServer().getPluginManager().registerEvents(new ChatListener(), this);
-        getServer().getPluginManager().registerEvents(new VoteListener(), this);
+        if (this.isVotifier)
+            getServer().getPluginManager().registerEvents(new VoteListener(), this);
+
         MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.registerIncomingDataListener("mineSuiteChat", new JClientChatListener());
         loadCommands();
     }
@@ -46,6 +51,10 @@ public class ChatPlugin extends JavaPlugin {
         return MineSuiteCorePlugin.getChat();
     }
 
+    public Economy getEconomy() {
+        return MineSuiteCorePlugin.getEconomy();
+    }
+
 
     public void loadCommands() {
         getCommand("msg").setExecutor(new PrivateMSG(this));
@@ -56,6 +65,7 @@ public class ChatPlugin extends JavaPlugin {
         getCommand("spy").setExecutor(new SocialSpy(this));
         getCommand("h").setExecutor(new TradeChat(this));
         getCommand("bc").setExecutor(new BroadcastChat(this));
-        getCommand("testvote").setExecutor(new TestVote(this));
+        if (this.isVotifier)
+            getCommand("testvote").setExecutor(new TestVote(this));
     }
 }

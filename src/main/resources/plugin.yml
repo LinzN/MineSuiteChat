@@ -4,7 +4,8 @@ description: ChatPlugin
 authors: [Kekshaus]
 main: de.linzn.mineSuite.chat.ChatPlugin
 load: POSTWORLD
-depend: [MineSuiteCore, Vault, Votifier]
+depend: [MineSuiteCore, Vault]
+softdepend: [Votifier]
 api-version: 1.13
 commands:
   testvote:
