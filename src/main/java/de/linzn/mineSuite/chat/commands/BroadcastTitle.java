@@ -14,6 +14,7 @@ package de.linzn.mineSuite.chat.commands;
 import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
 import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -41,8 +42,8 @@ public class BroadcastTitle implements CommandExecutor {
                     sender.sendMessage(GeneralLanguage.chat_SWITCH_DISABLED);
                     return;
                 }
-                if (args.length <= 2) {
-                    sender.sendMessage("Wrong usage: /tbc <Time in sec> <title;subtitle>");
+                if (args.length < 2) {
+                    sender.sendMessage(ChatColor.RED + "Wrong usage: /tbc <Time in sec> <title;subtitle>");
                     return;
                 }
                 int time = Integer.parseInt(args[0]);

@@ -15,6 +15,7 @@ import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
 import de.linzn.mineSuite.chat.utils.VaultAccess;
 import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -39,13 +40,10 @@ public class BroadcastChat implements CommandExecutor {
         if (player.hasPermission("mineSuite.chat.broadcast")) {
             this.executorServiceCommands.submit(() -> {
                 if (args.length == 0) {
-                    sender.sendMessage(GeneralLanguage.chat_SWITCH_DISABLED);
+                    sender.sendMessage(ChatColor.RED + "Wrong usage: /bc <MSG>");
                     return;
                 }
-                if (args.length <= 1) {
-                    sender.sendMessage("Wrong usage: /bc <MSG>");
-                    return;
-                }
+
                 String text = "";
                 for (int i = 0; i < args.length; i++) {
                     String arg = args[i] + " ";
