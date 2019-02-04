@@ -13,7 +13,6 @@ package de.linzn.mineSuite.chat.commands;
 
 import de.linzn.mineSuite.chat.ChatPlugin;
 import de.linzn.mineSuite.chat.socket.JClientChatOutput;
-import de.linzn.mineSuite.chat.utils.VaultAccess;
 import de.linzn.mineSuite.core.configurations.YamlFiles.GeneralLanguage;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -25,35 +24,43 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 
-public class BroadcastChat implements CommandExecutor {
+public class BroadcastTitle implements CommandExecutor {
     public ThreadPoolExecutor executorServiceCommands = new ThreadPoolExecutor(1, 1, 250L, TimeUnit.MILLISECONDS,
             new LinkedBlockingQueue<>());
 
-    public BroadcastChat(ChatPlugin instance) {
+    public BroadcastTitle(ChatPlugin instance) {
 
     }
 
     @Override
     public boolean onCommand(final CommandSender sender, Command cmd, String label, final String[] args) {
         final Player player = (Player) sender;
-        if (player.hasPermission("mineSuite.chat.broadcast")) {
+        if (player.hasPermission("mineSuite.chat.titlebroadcast")) {
             this.executorServiceCommands.submit(() -> {
                 if (args.length == 0) {
                     sender.sendMessage(GeneralLanguage.chat_SWITCH_DISABLED);
                     return;
                 }
-                if (args.length <= 1) {
-                    sender.sendMessage("Wrong usage: /bc <MSG>");
+                if (args.length <= 2) {
+                    sender.sendMessage("Wrong usage: /tbc <Time in sec> <title;subtitle>");
                     return;
                 }
-                String text = "";
-                for (int i = 0; i < args.length; i++) {
+                int time = Integer.parseInt(args[0]);
+                String rawInput = "";
+
+                for (int i = 1; i < args.length; i++) {
                     String arg = args[i] + " ";
-                    text = text + arg;
+                    rawInput = rawInput + arg;
                 }
-                String prefix = VaultAccess.getPrefix(player).replace("&", "§");
-                String suffix = VaultAccess.getSuffix(player).replace("&", "§");
-                JClientChatOutput.channelChat(sender.getName(), text, prefix, suffix, "BROADCAST");
+
+                String titel;
+                String subTitel = "";
+
+                titel = rawInput.split(";")[0];
+                if (rawInput.split(";").length > 1) {
+                    subTitel = rawInput.split(";")[1];
+                }
+                JClientChatOutput.chatTitel(sender.getName(), titel.replace("&", "§"), subTitel.replace("&", "§"), time);
 
             });
         } else {

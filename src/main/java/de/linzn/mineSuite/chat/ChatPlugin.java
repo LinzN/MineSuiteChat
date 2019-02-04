@@ -65,6 +65,7 @@ public class ChatPlugin extends JavaPlugin {
         getCommand("spy").setExecutor(new SocialSpy(this));
         getCommand("h").setExecutor(new TradeChat(this));
         getCommand("bc").setExecutor(new BroadcastChat(this));
+        getCommand("tbc").setExecutor(new BroadcastTitle(this));
         if (this.isVotifier)
             getCommand("testvote").setExecutor(new TestVote(this));
     }

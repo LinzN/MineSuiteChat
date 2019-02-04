@@ -28,6 +28,9 @@ commands:
   bc:
     aliases: [broadcast]
     description: BroadCast
+  tbc:
+    aliases: [titlebroadcast]
+    description: TitleBroadCast
   afk:
     description: AFK
   spy:
@@ -43,6 +46,7 @@ permissions:
             mineSuite.chat.bypass: true
             mineSuite.chat.staff: true
             mineSuite.chat.broadcast: true
+            mineSuite.chat.titlebroadcast: true
             mineSuite.chat.testvote: true
     mineSuite.chat.user:
         description: Alle User Permissions
@@ -72,6 +76,9 @@ permissions:
         description: TradeChat
         default: op
     mineSuite.chat.broadcast:
+        description: BroadcastChat
+        default: op
+    mineSuite.chat.titlebroadcast:
         description: BroadcastChat
         default: op
     mineSuite.chat.use:

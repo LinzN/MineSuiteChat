@@ -11,6 +11,7 @@
 
 package de.linzn.mineSuite.chat.api;
 
+import de.linzn.mineLib.title.MineTitle;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
@@ -25,6 +26,10 @@ public class ChatManager {
         }
         Bukkit.getConsoleSender().sendMessage("STAFF" + "-> " + text);
 
+    }
+
+    public static void sendTitleMsg(String title, String subTitle, int time){
+        new MineTitle(title, subTitle, 20, time * 20, 40).sendToAll();
     }
 
 }

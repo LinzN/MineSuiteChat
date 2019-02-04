@@ -34,6 +34,13 @@ public class JClientChatListener implements IncomingDataListener {
                 ChatManager.sendStaffChatMsg(text);
             }
 
+            if (subChannel.equals("server_data-title")) {
+                String title = in.readUTF();
+                String subTitle = in.readUTF();
+                int time = in.readInt();
+                ChatManager.sendTitleMsg(title, subTitle, time);
+            }
+
         } catch (IOException e1) {
             e1.printStackTrace();
         }
