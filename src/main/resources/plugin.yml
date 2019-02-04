@@ -33,6 +33,8 @@ commands:
     description: TitleBroadCast
   afk:
     description: AFK
+  mail:
+    description: mail
   spy:
     aliases: [socialspy]
     description: SocialSpy
@@ -57,6 +59,10 @@ permissions:
             mineSuite.chat.global: true
             mineSuite.chat.use: true
             mineSuite.chat.trade: true
+            mineSuite.chat.mail.help: true
+            mineSuite.chat.mail.list: true
+            mineSuite.chat.mail.send: true
+            mineSuite.chat.mail.show: true
     mineSuite.chat.afk:
         description: afk
         default: op
@@ -92,4 +98,16 @@ permissions:
         default: op
     mineSuite.chat.testvote:
         description: testvote
+        default: op
+    mineSuite.chat.mail.send:
+        description: mail send
+        default: op
+    mineSuite.chat.mail.show:
+        description: mail show
+        default: op
+    mineSuite.chat.mail.list:
+        description: mail list
+        default: op
+    mineSuite.chat.mail.help:
+        description: mail help
         default: op
