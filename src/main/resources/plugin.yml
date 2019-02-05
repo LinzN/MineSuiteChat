@@ -63,6 +63,7 @@ permissions:
             mineSuite.chat.mail.list: true
             mineSuite.chat.mail.send: true
             mineSuite.chat.mail.show: true
+            mineSuite.chat.mail.delete: true
     mineSuite.chat.afk:
         description: afk
         default: op
@@ -110,4 +111,7 @@ permissions:
         default: op
     mineSuite.chat.mail.help:
         description: mail help
+        default: op
+    mineSuite.chat.mail.delete:
+        description: mail delete
         default: op

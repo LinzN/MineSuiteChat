@@ -17,6 +17,7 @@ import de.linzn.mineSuite.core.database.hashDatabase.ChatDataTable;
 import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.util.UUID;
 
 
 public class JClientChatOutput {
@@ -132,4 +133,56 @@ public class JClientChatOutput {
         MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
     }
 
+    public static void sendMail(UUID sender, String receiver, String text) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        try {
+            dataOutputStream.writeUTF("client_chat-mail-send");
+            dataOutputStream.writeUTF(sender.toString());
+            dataOutputStream.writeUTF(receiver);
+            dataOutputStream.writeUTF(text);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
+    }
+
+    public static void deleteMail(UUID actor, int mailID) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        try {
+            dataOutputStream.writeUTF("client_chat-mail-delete");
+            dataOutputStream.writeUTF(actor.toString());
+            dataOutputStream.writeInt(mailID);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
+    }
+
+    public static void showMail(UUID actor, int mailID) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        try {
+            dataOutputStream.writeUTF("client_chat-mail-show");
+            dataOutputStream.writeUTF(actor.toString());
+            dataOutputStream.writeInt(mailID);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
+    }
+
+    public static void listMails(UUID actor, int page) {
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        DataOutputStream dataOutputStream = new DataOutputStream(byteArrayOutputStream);
+        try {
+            dataOutputStream.writeUTF("client_chat-mail-list");
+            dataOutputStream.writeUTF(actor.toString());
+            dataOutputStream.writeInt(page);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        MineSuiteCorePlugin.getInstance().getMineJSocketClient().jClientConnection1.writeOutput("mineSuiteChat", byteArrayOutputStream.toByteArray());
+    }
 }
